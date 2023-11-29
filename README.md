@@ -14,7 +14,7 @@ includes 2 containers:
 2. Fetch the code
  
 ```bash
-$ git clone <repo_url_here>
+$ git clone https://github.com/evgi99/nestjs-and-mongodb.git
 ```
 
 3. Running all services with docker-compose (detach mode)
