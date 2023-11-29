@@ -28,6 +28,7 @@
     "@typegoose/auto-increment": "^4.0.0",
     "axios": "^1.6.2",
     "class-validator": "^0.14.0",
+    "http-proxy-middleware": "^2.0.6",
     "mongoose": "^8.0.1",
     "mongoose-sequence": "^5.3.1",
     "reflect-metadata": "^0.1.13",

@@ -1,7 +1,8 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
 import { PostsModule } from './core/posts/posts.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { HealthModule } from './core/health/health.module';
+import { ReverseProxyMiddleware } from './infra/middleware/reverse-proxy.middleware';
 
 @Module({
   imports: [
@@ -16,4 +17,10 @@ import { HealthModule } from './core/health/health.module';
   controllers: [],
   providers: [],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(ReverseProxyMiddleware)
+      .forRoutes({ path: '/all-posts-from-web', method: RequestMethod.ALL });
+  }
+}
