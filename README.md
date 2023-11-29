@@ -20,7 +20,7 @@ $ git clone https://github.com/evgi99/nestjs-and-mongodb.git
 3. Running all services with docker-compose (detach mode)
 
 ```bash
-$ cd rest-server
+$ cd nestjs-and-mongodb
 $ docker-compose up -d 
 ```
 
