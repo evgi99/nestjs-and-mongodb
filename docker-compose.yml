@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  mongodb:
+    container_name: mongodb
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - dbdata:/data/db
+    restart: always
+
+  app:
+    container_name: rest-server
+    build: .
+    ports:
+      - 3009:3009
+    volumes:
+      - .:/rest-server
+      - /rest-server/node_modules
+    command: npm run start:dev
+    env_file: 
+      - .env
+    depends_on:
+       - mongodb 
+  
+volumes:
+  dbdata:
